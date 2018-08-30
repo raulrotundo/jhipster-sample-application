@@ -30,11 +30,10 @@ You will only need to run this command when dependencies change in [package.json
 
 We use yarn scripts and [Webpack][] as our build system.
 
-Run the following commands in two separate terminals to create a blissful development experience where your browser
-auto-refreshes when files change on your hard drive.
+Run the following commands on /gateway and /onlineshop folders to create a blissful development experience using gradle and docker.
 
-    ./gradlew
-    yarn start
+    ./gradlew bootWar -Pprod buildDocker
+    docker-compose -f src/main/docker/app.yml up -d
 
 [Yarn][] is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
 specifying a newer version in [package.json](package.json). You can also run `yarn update` and `yarn install` to manage dependencies.
