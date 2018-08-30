@@ -35,11 +35,15 @@ Run the following commands on /gateway and /onlineshop folders to create a bliss
     ./gradlew bootWar -Pprod buildDocker
     docker-compose -f src/main/docker/app.yml up -d
 
-[Yarn][] is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in [package.json](package.json). You can also run `yarn update` and `yarn install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `yarn help update`.
+Endpoints are available in the following addresses:
 
-The `yarn run` command will list all of the scripts available to run for this project.
+Jhipster Registry:
+
+http://localhost:8761
+
+Application (Gateway):
+
+http://localhost:8080
 
 ### Service workers
 
