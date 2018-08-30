@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -32,6 +33,8 @@ public class CustomerResource {
     private final Logger log = LoggerFactory.getLogger(CustomerResource.class);
 
     private static final String ENTITY_NAME = "customer";
+
+    private static final String ROLE_ADMIN = "ROLE_ADMIN";
 
     private final CustomerRepository customerRepository;
 
@@ -87,6 +90,7 @@ public class CustomerResource {
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of customers in body
      */
+    @Secured(ROLE_ADMIN)
     @GetMapping("/customers")
     @Timed
     public ResponseEntity<List<Customer>> getAllCustomers(Pageable pageable) {
